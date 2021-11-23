@@ -1,7 +1,5 @@
 function calcs() {
     var f = document.form1;
-    // var temp = 0;
-
     var xs = parseInt(f.x.value); //x width
     var ys = parseInt(f.y.value); //y width
     var es = parseInt(f.ea.value); // EA
@@ -14,20 +12,23 @@ function calcs() {
     var price = 0;
     var ivt_prc = 0;
     var tool_prc = 0;
+    var area_ratio =0;
 
     //면적계산
     if (AR <= 1) {
-        area = xs * ys * AR;
-        sheetprc = area * (2.5)*es;
+        area_ratio = xs * ys * AR;
+        area =xs * ys*2.5*es;
+        sheetprc = area_ratio * (2.5)*es;
         sheetprc = Math.round(sheetprc);
+        area=Math.round(area);
         // console.log(sheetprc);
     } else {
         alert('면적 입력 오류입니다.');
         document.getElementById("form1").reset();
     }
 
-    if (area <= 1000) {
-        bal_prc = area * 40*es;
+    if (area_ratio <= 1000) {
+        bal_prc = area_ratio * 40*es;
     } else {
         switch (AR) {
             case 5:
@@ -35,16 +36,16 @@ function calcs() {
                 document.getElementById("form1").reset();
                 break;
             case 1:
-                bal_prc = area * 70*es;
+                bal_prc = area_ratio * 70*es;
                 break;
             case 0.7:
-                bal_prc = area * 60*es;
+                bal_prc = area_ratio * 60*es;
                 break;
             case 0.5:
-                bal_prc = area * 50*es;
+                bal_prc = area_ratio * 50*es;
                 break;
             case 0.3:
-                bal_prc = area * 40*es;
+                bal_prc = area_ratio * 40*es;
                 break;
         }
 
@@ -63,14 +64,14 @@ function calcs() {
     } else if(!ivtN && !ivtC){
         alert('인버터 방식을 선택해 주세요');
     } else if (ivtC) {
-        if (area > 3600) {
+        if (area_ratio > 3600) {
             alert('발광면적이 3600cm²를 초과하였습니다.');
-        } else if (area > 2400) {
+        } else if (area_ratio > 2400) {
             price = price + 80000* es + 600000;
-            ivt_prc = 80000 * es;
+            ivt_prc = 80000* es;
             tool_prc = 600000;
             console.log(price);
-        } else if (area > 1200) {
+        } else if (area_ratio > 1200) {
             price = price + 60000*es + 500000;
             ivt_prc = 60000 * es;
             tool_prc = 500000;
@@ -82,14 +83,14 @@ function calcs() {
             console.log(price);
         }
     } else {
-        if (area > 3600) {
+        if (area_ratio > 3600) {
             alert('발광면적이 3600cm²를 초과하였습니다.');
-        } else if (area > 2400) {
+        } else if (area_ratio > 2400) {
             price = price + 60000*es + 600000;
             ivt_prc = 60000 * es;
             tool_prc = 600000;
             console.log(price);
-        } else if (area > 1200) {
+        } else if (area_ratio > 1200) {
             price = price + 40000*es + 500000;
             ivt_prc = 40000 * es;
             tool_prc = 500000;
@@ -112,8 +113,10 @@ function calcs() {
     f.result.value = price;
     f.tool.value = tool_prc;
     f.ivt.value = ivt_prc;
-    f.area1.value = sheetprc;
+    f.area1.value = area;
     f.bal_prc.value = bal_prc;
 
 }
+
+
 
