@@ -27,7 +27,7 @@ function calcs() {
     }
 
     if (area <= 1000) {
-        bal_prc = area * 40;
+        bal_prc = area * 40*es;
     } else {
         switch (AR) {
             case 5:
@@ -35,16 +35,16 @@ function calcs() {
                 document.getElementById("form1").reset();
                 break;
             case 1:
-                bal_prc = area * 70;
+                bal_prc = area * 70*es;
                 break;
             case 0.7:
-                bal_prc = area * 60;
+                bal_prc = area * 60*es;
                 break;
             case 0.5:
-                bal_prc = area * 50;
+                bal_prc = area * 50*es;
                 break;
             case 0.3:
-                bal_prc = area * 40;
+                bal_prc = area * 40*es;
                 break;
         }
 
@@ -66,17 +66,17 @@ function calcs() {
         if (area > 3600) {
             alert('발광면적이 3600cm²를 초과하였습니다.');
         } else if (area > 2400) {
-            price = (price + 80000) * es + 600000;
+            price = price + 80000* es + 600000;
             ivt_prc = 80000 * es;
             tool_prc = 600000;
             console.log(price);
         } else if (area > 1200) {
-            price = (price + 60000) * es + 500000;
+            price = price + 60000*es + 500000;
             ivt_prc = 60000 * es;
             tool_prc = 500000;
             console.log(price);
         } else {
-            price = (price + 30000) * es + 400000;
+            price = price + 30000* es + 400000;
             ivt_prc = 30000 * es;
             tool_prc = 400000;
             console.log(price);
@@ -85,17 +85,17 @@ function calcs() {
         if (area > 3600) {
             alert('발광면적이 3600cm²를 초과하였습니다.');
         } else if (area > 2400) {
-            price = (price + 60000) * es + 600000;
+            price = price + 60000*es + 600000;
             ivt_prc = 60000 * es;
             tool_prc = 600000;
             console.log(price);
         } else if (area > 1200) {
-            price = (price + 40000) * es + 500000;
+            price = price + 40000*es + 500000;
             ivt_prc = 40000 * es;
             tool_prc = 500000;
             console.log(price);
         } else {
-            price = (price + 20000) * es + 400000;
+            price = price + 20000*es + 400000;
             ivt_prc = 20000 * es;
             tool_prc = 400000;
             console.log(price);
