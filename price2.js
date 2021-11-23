@@ -18,7 +18,7 @@ function calcs() {
     //면적계산
     if (AR <= 1) {
         area = xs * ys * AR;
-        sheetprc = area * (2.5);
+        sheetprc = area * (2.5)*es;
         sheetprc = Math.round(sheetprc);
         // console.log(sheetprc);
     } else {
