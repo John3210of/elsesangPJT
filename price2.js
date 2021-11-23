@@ -107,6 +107,8 @@ function calcs() {
     var ivt_prc = ivt_prc.toLocaleString('ko-KR');
     var sheetprc = sheetprc.toLocaleString('ko-KR');
     var bal_prc = bal_prc.toLocaleString('ko-KR');
+
+    //updated 211123
     f.result.value = price;
     f.tool.value = tool_prc;
     f.ivt.value = ivt_prc;
