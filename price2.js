@@ -106,7 +106,7 @@ function calcs() {
     var price = price.toLocaleString('ko-KR');
     var tool_prc = tool_prc.toLocaleString('ko-KR');
     var ivt_prc = ivt_prc.toLocaleString('ko-KR');
-    var sheetprc = sheetprc.toLocaleString('ko-KR');
+    var area = area.toLocaleString('ko-KR');
     var bal_prc = bal_prc.toLocaleString('ko-KR');
 
     //updated 211123
