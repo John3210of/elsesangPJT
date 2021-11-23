@@ -13,7 +13,7 @@ function calcs() {
     var ivt_prc = 0;
     var tool_prc = 0;
     var area_ratio =0;
-
+//211123 20:48
     //면적계산
     if (AR <= 1) {
         area_ratio = xs * ys * AR;
