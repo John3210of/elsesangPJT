@@ -1,116 +1,127 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="Generator" content="EditPlus®">
-    <meta name="Author" content="">
-    <meta name="Keywords" content="">
-    <meta name="Description" content="">
-    <title>견적</title>
-</head>
-<style>
-    .font20 {
-        font-size: 20px;
-        padding-letf: 20px;
-    }
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
 
-    .fontNm {
-        font-size: 17px;
-        position: center;
-        font-weight: bolder;
-        background-color: rgba(43, 48, 64, 0.29);
-    }
+<table width="900" height="300" style="border:0 solid #B0B0B0" cellpadding="0" valign="top" bgcolor="#FFFFFF">
+                          <tr>
+						  <td align="center">
+						  <!-- 단가계산 시작 -->
 
-    ::placeholder {
-        color: blue;
-        font-weight: bold;
-    }
-</style>
-<body>
+                        <script src="./css/price2.js" charset="utf-8"></script>
+							<form name="form1">
+								<table width="900" height="300" border="0" cellpadding="0" cellspacing="1" bgcolor="#666666">
+									<tr>
+										<td height="30" align="center" valign="middle" bgcolor="#c6dddf" class="tabletxt2"><strong>항목</strong></td>
+										<td height="30" align="center" valign="middle" bgcolor="#c6dddf" class="tabletxt2"><strong>내용</strong></td>
+										<td height="30" align="center" valign="middle" bgcolor="#c6dddf" class="tabletxt2"><strong>가격</strong></td>
+										<td height="30" align="center" valign="middle" bgcolor="#c6dddf" class="tabletxt2"><strong>비고</strong></td>
 
-<script src="./price2.js"></script>
+									</tr>
+									<tr>
+										<td height="30" style="height:px;" class="fontNm" width="150" bgcolor="#bebebe" align="center">①&nbsp;실사출력</td>
 
-<form name="form1">
-    <table width="1000" height="200" border="1" cellpadding="0" valign="top" bgcolor="#FFFFFF">
-        <tr>
-            <td height="30" colspan="3" align="center">기본정보입력</td>
-        </tr>
-        <tr>
-            <td style="height:px;" class="fontNm" width="150">실사출력크기</td>
+										<td width="250" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;<input name="x" id='xsize' type="text" maxlength="3" style="width:70px;"  placeholder="가로"/>&nbsp;cm &nbsp;
+											<input name="y" id='ysize' maxlength="3" style="width:70px;" type="text" placeholder="세로"/>&nbsp;cm
+											[1cm² / 2.5원]</td>
+										</td>
+									<td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
+										<input type="text" name="area1" style="text-align:right; width:100px;">&nbsp;원
+									</td>
+									<td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+									<font size="2" color="#0066ff">&nbsp;&nbsp;[70X100cm이내]</font>
+									</td>
+									</tr>
+									<tr>
 
-            <td><input name="x" id='xsize' type="text" maxlength="3" placeholder="가로"/> cm &nbsp;
-                <input name="y" id='ysize' maxlength="3" type="text" placeholder="세로"/>cm
-                [1cm² / 2.5원] <p style="color: red;font-weight: bold"> **[70X100cm이내]** </p></td>
-            </td>
-        <td style="width:200px;">
-            <input type="text" name="area1">
-        </td>
+										<td height="30" class="fontNm" bgcolor="#bebebe" align="center">②&nbsp;el&nbsp;시&nbsp;트</td>
+										<td height="30" valign="middle" bgcolor="#f7f7f7" >&nbsp;&nbsp;&nbsp;<select name="area" class="font20">
+											<option value="5">======면적을 선택해 주세요=====</option>
+											<option value="0.3">30% 이내 [1cm² / 40원]</option>
+											<option value="0.5">50% 이내 [1cm² / 50원]</option>
+											<option value="0.7">70% 이내 [1cm² / 60원]</option>
+											<option value="1">100% 이내 [1cm² / 70원]</option>
+										</select>
+										</td>
+										</td>
+									<td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
+										<input type="text" name="bal_prc" style="text-align:right; width:100px;">&nbsp;원
+									</td>
+									<td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+									<font size="2" color="#0066ff">&nbsp;&nbsp;발광면적 최대는 3,600cm²</font>
+									</td>
 
-        </tr>
-        <tr>
+									</tr>
+									<tr>
+										<td height="30" class="fontNm" bgcolor="#bebebe" align="center">③&nbsp;el인버터</td>
+										<td height="30" valign="middle" bgcolor="#f7f7f7" >&nbsp;&nbsp;&nbsp;
+											<input type="checkbox" name="sp_iv" value="20000">단순형
+											<input type="checkbox" name="ch_iv" value="30000">채널형
+											</select>
+										</td>
+										<td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
+											<input type="text" name="ivt" style="text-align:right; width:100px;">&nbsp;원
+										</td>
+									   <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                         <font size="2" color="#0066ff">&nbsp;&nbsp;단순형(on/off/blink)&nbsp;채널형(8ch이내)</font>
 
-            <td height="20" class="fontNm">발광면적</td>
-            <td height="20"><select name="area" class="font20">
-                <option value="5">======면적을 선택해 주세요=====</option>
-                <option value="0.3">30% [1cm² / 40원]</option>
-                <option value="0.5">50% [1cm² / 50원]</option>
-                <option value="0.7">70% [1cm² / 60원]</option>
-                <option value="1">100% [1cm² / 70원]</option>
-            </select>
+									</tr>
+									<tr>
+										<td height="30" class="fontNm" bgcolor="#bebebe" align="center">④&nbsp;제판툴비</td>
+										<td height="30" valign="middle" bgcolor="#f7f7f7" >&nbsp;&nbsp;&nbsp;
+											<!--            <select name="chk_info" onchange="getPrc(this)" class="font20">-->
+											<!--                <option value="0">======면적을 선택해 주세요=====</option>-->
+											<!--                <option value="400000">출력사이즈 1200cm이하 - 400,000원</option>-->
+											<!--                <option value="500000">출력사이즈 2400cm이하 - 500,000원</option>-->
+											<!--                <option value="600000">출력사이즈 3600cm이하 - 600,000원</option>-->
+											<!--            </select>-->
 
-            </td>
-            </td>
-        <td style="width:200px;">
-            <input type="text" name="bal_prc">
-        </td>
+										</td>
+										<td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
+											<input type="text" name="tool" style="text-align:right; width:100px;">&nbsp;원
+										</td>
+										<td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                          <font size="2" color="#3333ff">발광면적 기준으로 제판툴비 변동됨</font>
+										 </td>
+									</tr>
+									<tr>
+										<td height="30" class="fontNm" bgcolor="#bebebe" align="center">⑤&nbsp;제작수량</td>
+										<td height="30" valign="middle" bgcolor="#f7f7f7" >&nbsp;&nbsp;&nbsp;<input name="ea" id='ea' style="width:70px;" placeholder="10개이하"/> 개
+										</td>
+									<td style="width:120px;" valign="middle" bgcolor="#f7f7f7" ></td>
+									<td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+										<font size="2" color="#0066ff">&nbsp;&nbsp;샘플제작은 10개 이하임</font>
+									</td>
 
-        </tr>
-        <tr>
-            <td height="20" class="fontNm">el인버터</td>
-            <td height="20">
-                <input type="checkbox" name="sp_iv" value="20000">단순형
-                <input type="checkbox" name="ch_iv" value="30000">채널형
-                </select>
-            </td>
-            <td style="width:200px;">
-                <input type="text" name="ivt">
-            </td>
-        </tr>
-        <tr>
-            <td height="20" class="fontNm">제판툴비</td>
-            <td height="20">
-                <!--            <select name="chk_info" onchange="getPrc(this)" class="font20">-->
-                <!--                <option value="0">======면적을 선택해 주세요=====</option>-->
-                <!--                <option value="400000">출력사이즈 1200cm이하 - 400,000원</option>-->
-                <!--                <option value="500000">출력사이즈 2400cm이하 - 500,000원</option>-->
-                <!--                <option value="600000">출력사이즈 3600cm이하 - 600,000원</option>-->
-                <!--            </select>-->
+									</tr>
+									<tr>
+										<td height="30" class="fontNm" bgcolor="#bebebe" align="center">⑥&nbsp;합&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;계</td>
+										<td height="30" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;
+											<input type="button" value="결과보기" onclick="calcs();">
+											<input type="reset" name ='clear' value="다시입력">
+										</td>
+										<td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center"><input type="text" name="result" style="text-align:right; width:100px;">&nbsp;원</td>
+									<td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+									<font size="2" color="#0066ff">&nbsp;&nbsp;VAT별도</font>
 
-            </td>
-            <td style="width:200px;">
-                <input type="text" name="tool">
-            </td>
-        </tr>
-        <tr>
-            <td height="20" class="fontNm">샘플수량</td>
-            <td height="20"><input name="ea" id='ea' placeholder="10개이하"/> 개
-            </td>
-            </td>
-        <td style="width:200px;"></td>
-        </tr>
-        <tr>
-            <td height="20" class="fontNm">가격계산(VAT별도)</td>
-            <td height="20">
-                <input type="button" value="결과보기" onclick="calcs();">
-                <input type="reset" name ='clear' value="다시입력">
-            </td>
-            <td style="width:200px;"> <input type="text" name="result"></td>
-        </tr>
+									</td>
 
+									</tr>
+                                    <tr><td height="30" colspan="4" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;상기 견적은 샘플진행 용도이며, 약간의 금액변동은 발생할수 있습니다. 대량주문의 경우 유선문의바랍니다.</td></tr>
 
-        </table>
-</form>
-</tr>
+									</table>
+							</form>
+						  <!-- 단가계산 끝 -->
+						  </td>
+						 </tr>
+                   </table>
 
-</body>
+ </body>
 </html>
