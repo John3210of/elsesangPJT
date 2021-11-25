@@ -1,41 +1,156 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Contact Form</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // https://dashboard.emailjs.com/admin/integration
-            emailjs.init('service_h2okvh9');
-        })();
-    </script>
-    <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                // generate a five digit number for the contact_number variable
-                this.contact_number.value = Math.random() * 100000 | 0;
-                // these IDs from the previous steps
-                emailjs.sendForm('service_h2okvh9', 'template_k6wqrgb', this)
-                    .then(function() {
-                        console.log('SUCCESS!');
-                    }, function(error) {
-                        console.log('FAILED...', error);
-                    });
-            });
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>Document</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!--    제이쿼리-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="./price2.js" charset="utf-8"></script>
 </head>
 <body>
-    <form id="contact-form">
-        <input type="hidden" name="contact_number">
-        <label>Name</label>
-        <input type="text" name="user_name">
-        <label>Email</label>
-        <input type="email" name="user_email">
-        <label>Message</label>
-        <textarea name="message"></textarea>
-        <input type="submit" value="Send">
-    </form>
+<div id="pdfArea">
+    <table width="900" height="300" style="border:0 solid #B0B0B0" cellpadding="0" valign="top" bgcolor="#FFFFFF">
+        <tr>
+            <td align="center">
+                <!-- 단가계산 시작 -->
+
+                <script src="./price2.js" charset="utf-8"></script>
+                <form name="form1">
+                    <table width="900" height="300" border="0" cellpadding="0" cellspacing="1" bgcolor="#666666">
+                        <tr>
+                            <td height="30" align="center" valign="middle" bgcolor="#c6dddf" class="tabletxt2"><strong>항목</strong>
+                            </td>
+                            <td height="30" align="center" valign="middle" bgcolor="#c6dddf" class="tabletxt2"><strong>내용</strong>
+                            </td>
+                            <td height="30" align="center" valign="middle" bgcolor="#c6dddf" class="tabletxt2"><strong>가격</strong>
+                            </td>
+                            <td height="30" align="center" valign="middle" bgcolor="#c6dddf" class="tabletxt2"><strong>비고</strong>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td height="30" style="height:10px;" class="fontNm" width="150" bgcolor="#bebebe"
+                                align="center">①&nbsp;실사출력
+                            </td>
+
+                            <td width="250" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;<input name="x"
+                                                                                                       id='xsize'
+                                                                                                       type="text"
+                                                                                                       maxlength="3"
+                                                                                                       style="width:70px;"
+                                                                                                       placeholder="가로"/>&nbsp;cm
+                                &nbsp;
+                                <input name="y" id='ysize' maxlength="3" style="width:70px;" type="text"
+                                       placeholder="세로"/>&nbsp;cm
+                            </td>
+                            </td>
+                            <td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                <input type="text" name="area1" style="text-align:right; width:100px;">&nbsp;원
+                            </td>
+                            <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                <font size="2" color="#0066ff">&nbsp;&nbsp;[70X100cm이내]</font>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td height="30" class="fontNm" bgcolor="#bebebe" align="center">②&nbsp;el&nbsp;시&nbsp;트</td>
+                            <td height="30" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;<select name="area"
+                                                                                                        class="font20">
+                                <option value="5">======면적을 선택해 주세요=====</option>
+                                <option value="0.3">30% 이내 [1cm² / 40원]</option>
+                                <option value="0.5">50% 이내 [1cm² / 50원]</option>
+                                <option value="0.7">70% 이내 [1cm² / 60원]</option>
+                                <option value="1">100% 이내 [1cm² / 70원]</option>
+                            </select>
+                            </td>
+                            </td>
+                            <td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                <input type="text" name="bal_prc" style="text-align:right; width:100px;">&nbsp;원
+                            </td>
+                            <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                <font size="2" color="#0066ff">&nbsp;&nbsp;발광면적 최대는 3,600cm²</font>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td height="30" class="fontNm" bgcolor="#bebebe" align="center">③&nbsp;el인버터</td>
+                            <td height="30" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="sp_iv" value="20000">단순형
+                                <input type="checkbox" name="ch_iv" value="30000">채널형
+                                </select>
+                            </td>
+                            <td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                <input type="text" name="ivt" style="text-align:right; width:100px;">&nbsp;원
+                            </td>
+                            <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                <font size="2" color="#0066ff">&nbsp;&nbsp;단순형(on/off/blink)&nbsp;채널형(8ch이내)</font>
+
+                        </tr>
+                        <tr>
+                            <td height="30" class="fontNm" bgcolor="#bebebe" align="center">④&nbsp;제판툴비</td>
+                            <td height="30" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;
+
+
+                            </td>
+                            <td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                <input type="text" name="tool" style="text-align:right; width:100px;">&nbsp;원
+                            </td>
+                            <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                <font size="2" color="#3333ff">발광면적 기준으로 제판툴비 변동됨</font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="30" class="fontNm" bgcolor="#bebebe" align="center">⑤&nbsp;제작수량</td>
+                            <td height="30" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;<input name="ea" id='ea'
+                                                                                                       style="width:70px;"
+                                                                                                       placeholder="10개이하"/>
+                                개
+                            </td>
+                            <td style="width:120px;" valign="middle" bgcolor="#f7f7f7"></td>
+                            <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                <font size="2" color="#0066ff">&nbsp;&nbsp;샘플제작은 10개 이하임</font>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td height="10" class="fontNm" bgcolor="#bebebe" align="center">⑥&nbsp;합&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;계</td>
+                            <td height="10" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;
+                                <button type="button" value="결과보기" onclick="calcs();">결과보기</button>
+                                <button type="reset" name='clear' value="다시입력">다시입력</button>
+                                <button type="button" onclick="savePDF()">PDF 다운</button>
+                            </td>
+                            <td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center"><input type="text"
+                                                                                                             name="result"
+                                                                                                             style="text-align:right; width:100px;">&nbsp;원
+                            </td>
+                            <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                <font size="2" color="#0066ff">&nbsp;&nbsp;VAT별도</font>
+
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td height="30" colspan="4" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;상기 견적은 샘플진행 용도이며,
+                                약간의 금액변동은 발생할수 있습니다. 대량주문의 경우 유선문의바랍니다.
+                            </td>
+                        </tr>
+
+                    </table>
+                </form>
+                <!-- 단가계산 끝 -->
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+
+
 </body>
 </html>
