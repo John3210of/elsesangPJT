@@ -1,5 +1,11 @@
 //211123 20:48
 
+var bal_prz;
+var tool_prz;
+var ivt_prz;
+var area_prz;
+var result_prz;
+
 
 function calcs() {
     var f = document.form1;
@@ -53,16 +59,16 @@ function calcs() {
         }
 
     }
-    bal_prc = Math.round(bal_prc);
+    bal_prc = Math.round(bal_prc); //나중에 프라이스에 한번에 넣어
 
-    console.log(area);
-    console.log(sheetprc);
-    console.log(bal_prc);
+    // console.log(area_ratio);
+    // console.log(sheetprc);
+    // console.log(bal_prc);
 
     //최종가격
     price = bal_prc + sheetprc;
 
-    if (ivtN && ivtC) {             //and
+    if (ivtN && ivtC) {
         alert('인버터 방식을 선택해 주세요');
     } else if (!ivtN && !ivtC) {
         alert('인버터 방식을 선택해 주세요');
@@ -113,13 +119,30 @@ function calcs() {
     var bal_prc = bal_prc.toLocaleString('ko-KR');
 
     //updated 211123
-    f.result.value = price;
-    f.tool.value = tool_prc;
-    f.ivt.value = ivt_prc;
-    f.area1.value = area;
-    f.bal_prc.value = bal_prc;
+    // f.result.value = price;
+    // f.tool.value = tool_prc;
+    // f.ivt.value = ivt_prc;
+    // f.area1.value = area;
+    // f.bal_prc.value = bal_prc;
+
+    bal_prz = price;
+    tool_prz= tool_prc;
+    ivt_prz = ivt_prc;
+    area_prz= area;
+    result_prz= bal_prc;
+    console.log(bal_prz);
+    // console.log(f.bal_prc);
 
 }
+
+function output() {
+            document.getElementById("bal_prz").value= bal_prz;
+            document.getElementById("tool_prz").value= tool_prz;
+            document.getElementById("ivt_prz").value= ivt_prz;
+            document.getElementById("area_prz").value= area_prz;
+            document.getElementById("result_prz").value= result_prz;1
+        }
+
 
 
 //pdf 2021-1126-1617 pdf기능 완료 update
@@ -134,10 +157,8 @@ function savePDF() {
         var doc = new jsPDF('p', 'mm');
         var position = 0;
 
-        // 첫 페이지 출력
         doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
-        // 캔버스를 이미지로 변환
-        // 파일 저장
+
         doc.save('el.pdf');
     });
 }
