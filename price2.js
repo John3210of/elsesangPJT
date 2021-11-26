@@ -15,15 +15,15 @@ function calcs() {
     var price = 0;
     var ivt_prc = 0;
     var tool_prc = 0;
-    var area_ratio =0;
+    var area_ratio = 0;
 
     //면적계산
     if (AR <= 1) {
         area_ratio = xs * ys * AR;
-        area =xs * ys*2.5*es;
-        sheetprc = area_ratio * (2.5)*es;
+        area = xs * ys * 2.5 * es;
+        sheetprc = area_ratio * (2.5) * es;
         sheetprc = Math.round(sheetprc);
-        area=Math.round(area);
+        area = Math.round(area);
         // console.log(sheetprc);
     } else {
         alert('면적 입력 오류입니다.');
@@ -31,7 +31,7 @@ function calcs() {
     }
 
     if (area_ratio <= 1000) {
-        bal_prc = area_ratio * 40*es;
+        bal_prc = area_ratio * 40 * es;
     } else {
         switch (AR) {
             case 5:
@@ -39,16 +39,16 @@ function calcs() {
                 document.getElementById("form1").reset();
                 break;
             case 1:
-                bal_prc = area_ratio * 70*es;
+                bal_prc = area_ratio * 70 * es;
                 break;
             case 0.7:
-                bal_prc = area_ratio * 60*es;
+                bal_prc = area_ratio * 60 * es;
                 break;
             case 0.5:
-                bal_prc = area_ratio * 50*es;
+                bal_prc = area_ratio * 50 * es;
                 break;
             case 0.3:
-                bal_prc = area_ratio * 40*es;
+                bal_prc = area_ratio * 40 * es;
                 break;
         }
 
@@ -64,23 +64,23 @@ function calcs() {
 
     if (ivtN && ivtC) {             //and
         alert('인버터 방식을 선택해 주세요');
-    } else if(!ivtN && !ivtC){
+    } else if (!ivtN && !ivtC) {
         alert('인버터 방식을 선택해 주세요');
     } else if (ivtC) {
         if (area_ratio > 3600) {
             alert('발광면적이 3600cm²를 초과하였습니다.');
         } else if (area_ratio > 2400) {
-            price = price + 80000* es + 600000;
-            ivt_prc = 80000* es;
+            price = price + 80000 * es + 600000;
+            ivt_prc = 80000 * es;
             tool_prc = 600000;
             console.log(price);
         } else if (area_ratio > 1200) {
-            price = price + 60000*es + 500000;
+            price = price + 60000 * es + 500000;
             ivt_prc = 60000 * es;
             tool_prc = 500000;
             console.log(price);
         } else {
-            price = price + 30000* es + 400000;
+            price = price + 30000 * es + 400000;
             ivt_prc = 30000 * es;
             tool_prc = 400000;
             console.log(price);
@@ -89,17 +89,17 @@ function calcs() {
         if (area_ratio > 3600) {
             alert('발광면적이 3600cm²를 초과하였습니다.');
         } else if (area_ratio > 2400) {
-            price = price + 60000*es + 600000;
+            price = price + 60000 * es + 600000;
             ivt_prc = 60000 * es;
             tool_prc = 600000;
             console.log(price);
         } else if (area_ratio > 1200) {
-            price = price + 40000*es + 500000;
+            price = price + 40000 * es + 500000;
             ivt_prc = 40000 * es;
             tool_prc = 500000;
             console.log(price);
         } else {
-            price = price + 20000*es + 400000;
+            price = price + 20000 * es + 400000;
             ivt_prc = 20000 * es;
             tool_prc = 400000;
             console.log(price);
@@ -120,43 +120,24 @@ function calcs() {
     f.bal_prc.value = bal_prc;
 
 }
+
+
 //pdf
-  function savePDF(){
+function savePDF() {
     //저장 영역 div id
-    html2canvas($('#pdfArea')[0] ,{
-      //logging : true,		// 디버그 목적 로그
-      //proxy: "html2canvasproxy.php",
-      allowTaint : true,	// cross-origin allow
-      useCORS: true,		// CORS 사용한 서버로부터 이미지 로드할 것인지 여부
-      scale : 1			// 기본 96dpi에서 해상도를 두 배로 증가
+    html2canvas($('#pdfArea')[0]).then(function (canvas) {
 
-    }).then(function(canvas) {
-      // 캔버스를 이미지로 변환
-      var imgData = canvas.toDataURL('image/png');
+        var imgData = canvas.toDataURL('image/png');
+        var imgWidth = 190;
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var margin = 10; // 출력 페이지 여백설정
+        var doc = new jsPDF('p', 'mm');
+        var position = 0;
 
-      var imgWidth = 210; // 이미지 가로 길이(mm) / A4 기준 210mm
-      var pageHeight = imgWidth * 1.414;  // 출력 페이지 세로 길이 계산 A4 기준
-      var imgHeight = canvas.height * imgWidth / canvas.width;
-      var heightLeft = imgHeight;
-      var margin = 10; // 출력 페이지 여백설정
-      var doc = new jsPDF('p', 'mm');
-      var position = 0;
-
-      // 첫 페이지 출력
-      doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
-
-      // 한 페이지 이상일 경우 루프 돌면서 출력
-      while (heightLeft >= 20) {			// 35
-      position = heightLeft - imgHeight;
-      position = position - 20 ;		// -25
-
-      doc.addPage();
-      doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
-      }
-
-      // 파일 저장
-      doc.save('el견적.pdf');
+        // 첫 페이지 출력
+        doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+        // 캔버스를 이미지로 변환
+        // 파일 저장
+        doc.save('el.pdf');
     });
-  }
+}
