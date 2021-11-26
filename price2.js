@@ -125,11 +125,11 @@ function calcs() {
     // f.area1.value = area;
     // f.bal_prc.value = bal_prc;
 
-    bal_prz = price;
+    bal_prz = bal_prc;
     tool_prz= tool_prc;
     ivt_prz = ivt_prc;
     area_prz= area;
-    result_prz= bal_prc;
+    result_prz= price;
     console.log(bal_prz);
     // console.log(f.bal_prc);
 
@@ -158,7 +158,7 @@ function savePDF() {
         var position = 0;
 
         doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
-
+        // var data=today.toISOString();
         doc.save('el.pdf');
     });
 }
