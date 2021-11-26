@@ -35,23 +35,20 @@
 
                         </tr>
                         <tr>
-                            <td height="30" style="height:10px;" class="fontNm" width="150" bgcolor="#bebebe"
+                            <td height="30" style="height:50px;" class="fontNm" width="150" bgcolor="#bebebe"
                                 align="center">①&nbsp;실사출력
                             </td>
 
-                            <td width="250" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;<input name="x"
-                                                                                                       id='xsize'
-                                                                                                       type="text"
-                                                                                                       maxlength="3"
-                                                                                                       style="width:70px;"
-                                                                                                       placeholder="가로"/>&nbsp;cm
+                            <td width="250" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;
+                                <input name="x" id='xsize' type="text" maxlength="3"
+                                       style="width:50px;height: 25px; text-align: center" placeholder="가로"/>&nbsp;cm
                                 &nbsp;
-                                <input name="y" id='ysize' maxlength="3" style="width:70px;" type="text"
-                                       placeholder="세로"/> &nbsp;cm
+                                <input name="y" id='ysize' maxlength="3"
+                                       style="width:50px;height: 25px; text-align: center" placeholder="세로"/> &nbsp;cm
                             </td>
 
                             <td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
-                                <input type="text" name="area1" style="text-align:right; width:100px;">&nbsp;원
+                                <input type="text" name="area1" style="height: 25px;text-align:right; width:100px;">&nbsp;원
                             </td>
                             <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
                                 <font size="2" color="#0066ff">&nbsp;&nbsp;[70X100cm이내]</font>
@@ -59,9 +56,9 @@
                         </tr>
                         <tr>
 
-                            <td height="30" class="fontNm" bgcolor="#bebebe" align="center">②&nbsp;el&nbsp;시&nbsp;트</td>
-                            <td height="30" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;<select name="area"
-                                                                                                        class="font20">
+                            <td height="50" class="fontNm" bgcolor="#bebebe" align="center">②&nbsp;el&nbsp;시&nbsp;트</td>
+                            <td height="30" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;
+                                <select name="area" class="font20" style="height: 25px;">
                                 <option value="5">======면적을 선택해 주세요=====</option>
                                 <option value="0.3">30% 이내 [1cm² / 40원]</option>
                                 <option value="0.5">50% 이내 [1cm² / 50원]</option>
@@ -71,7 +68,7 @@
                             </td>
                             </td>
                             <td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
-                                <input type="text" name="bal_prc" style="text-align:right; width:100px;">&nbsp;원
+                                <input type="text" name="bal_prc" style="text-align:right; width:100px;height: 25px;">&nbsp;원
                             </td>
                             <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
                                 <font size="2" color="#0066ff">&nbsp;&nbsp;발광면적 최대는 3,600cm²</font>
@@ -86,7 +83,7 @@
                                 </select>
                             </td>
                             <td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
-                                <input type="text" name="ivt" style="text-align:right; width:100px;">&nbsp;원
+                                <input type="text" name="ivt" style="height: 25px;text-align:right; width:100px;">&nbsp;원
                             </td>
                             <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
                                 <font size="2" color="#0066ff">&nbsp;&nbsp;단순형(on/off/blink)&nbsp;채널형(8ch이내)</font>
@@ -99,18 +96,17 @@
 
                             </td>
                             <td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
-                                <input type="text" name="tool" style="text-align:right; width:100px;">&nbsp;123456원
+                                <input type="text" name="tool"
+                                       style="height: 25px;text-align:right; width:100px;">&nbsp;원
                             </td>
                             <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
                                 <font size="2" color="#3333ff">발광면적 기준으로 제판툴비 변동됨</font>
                             </td>
                         </tr>
                         <tr>
-                            <td height="30" class="fontNm" bgcolor="#bebebe" align="center">⑤&nbsp;제작수량</td>
-                            <td height="30" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;<input name="ea" id='ea'
-                                                                                                       style="width:70px;"
-                                                                                                       placeholder="10개이하"/>
-                                개
+                            <td height="50" class="fontNm" bgcolor="#bebebe" align="center">⑤&nbsp;제작수량</td>
+                            <td height="30" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;
+                                <input name="ea" id='ea' style="width:70px; height: 25px; text-align: center" placeholder="10개이하"/>개
                             </td>
                             <td style="width:120px;" valign="middle" bgcolor="#f7f7f7"></td>
                             <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
@@ -119,15 +115,14 @@
 
                         </tr>
                         <tr>
-                            <td height="10" class="fontNm" bgcolor="#bebebe" align="center">⑥&nbsp;합&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;계</td>
+                            <td height="40" class="fontNm" bgcolor="#bebebe" align="center">⑥&nbsp;합&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;계</td>
                             <td height="10" valign="middle" bgcolor="#f7f7f7">&nbsp;&nbsp;&nbsp;
                                 <button type="button" value="결과보기" onclick="calcs();">결과보기</button>
                                 <button type="reset" name='clear' value="다시입력">다시입력</button>
                                 <button type="button" onclick="savePDF()">PDF 다운</button>
                             </td>
-                            <td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center"><input type="text"
-                                                                                                             name="result"
-                                                                                                             style="text-align:right; width:100px;">&nbsp;원
+                            <td style="width:120px;" valign="middle" bgcolor="#f7f7f7" align="center">
+                                <input type="text" name="result" style="text-align:right; width:100px;height: 25px;">&nbsp;원
                             </td>
                             <td style="width:200px;" valign="middle" bgcolor="#f7f7f7" align="center">
                                 <font size="2" color="#0066ff">&nbsp;&nbsp;VAT별도</font>
@@ -147,8 +142,6 @@
             </td>
         </tr>
     </table>
-
-
 </div>
 
 

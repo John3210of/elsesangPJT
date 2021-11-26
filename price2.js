@@ -122,13 +122,13 @@ function calcs() {
 }
 
 
-//pdf
+//pdf 2021-1126-1617 pdf기능 완료 update
 function savePDF() {
     //저장 영역 div id
     html2canvas($('#pdfArea')[0]).then(function (canvas) {
 
         var imgData = canvas.toDataURL('image/png');
-        var imgWidth = 190;
+        var imgWidth = 400;
         var imgHeight = canvas.height * imgWidth / canvas.width;
         var margin = 10; // 출력 페이지 여백설정
         var doc = new jsPDF('p', 'mm');
