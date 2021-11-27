@@ -126,23 +126,22 @@ function calcs() {
     // f.bal_prc.value = bal_prc;
 
     bal_prz = bal_prc;
-    tool_prz= tool_prc;
+    tool_prz = tool_prc;
     ivt_prz = ivt_prc;
-    area_prz= area;
-    result_prz= price;
+    area_prz = area;
+    result_prz = price;
     console.log(bal_prz);
     // console.log(f.bal_prc);
 
 }
 
 function output() {
-            document.getElementById("bal_prz").value= bal_prz;
-            document.getElementById("tool_prz").value= tool_prz;
-            document.getElementById("ivt_prz").value= ivt_prz;
-            document.getElementById("area_prz").value= area_prz;
-            document.getElementById("result_prz").value= result_prz;1
-        }
-
+    document.getElementById("bal_prz").value = bal_prz;
+    document.getElementById("tool_prz").value = tool_prz;
+    document.getElementById("ivt_prz").value = ivt_prz;
+    document.getElementById("area_prz").value = area_prz;
+    document.getElementById("result_prz").value = result_prz;
+}
 
 
 //pdf 2021-1126-1617 pdf기능 완료 update
@@ -151,14 +150,23 @@ function savePDF() {
     html2canvas($('#pdfArea')[0]).then(function (canvas) {
 
         var imgData = canvas.toDataURL('image/png');
-        var imgWidth = 400;
+        var imgWidth = 330;
         var imgHeight = canvas.height * imgWidth / canvas.width;
         var margin = 10; // 출력 페이지 여백설정
         var doc = new jsPDF('p', 'mm');
         var position = 0;
 
         doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
-        // var data=today.toISOString();
-        doc.save('el.pdf');
+
+        var today = new Date();  //date함수를 보기쉽게 변환 yyyy-dd-mm
+
+        var year = today.getFullYear();
+        var month = ('0' + (today.getMonth() + 1)).slice(-2);
+        var day = ('0' + today.getDate()).slice(-2);
+        var date = year + '-' + month + '-' + day;
+
+
+        doc.save(`${date}el.pdf`); //백틱으로 해결
+
     });
 }
