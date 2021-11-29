@@ -25,9 +25,9 @@ function calcs() {
 
     //면적계산
     if (AR <= 1) {
-        area_ratio = xs * ys * AR;
-        area = xs * ys * 2.5 * es;
-        sheetprc = area_ratio * (2.5) * es;
+        area_ratio = xs * ys * AR;       //el 시트 실제 면적 1개당
+        area = xs * ys * 2.5 * es;     //실사출력 총갯수
+        sheetprc = area_ratio * es; //el시트가격 총갯수
         sheetprc = Math.round(sheetprc);
         area = Math.round(area);
         // console.log(sheetprc);
@@ -37,7 +37,7 @@ function calcs() {
     }
 
     if (area_ratio <= 1000) {
-        bal_prc = area_ratio * 40 * es;
+        bal_prc = sheetprc*40;
     } else {
         switch (AR) {
             case 5:
@@ -45,28 +45,28 @@ function calcs() {
                 document.getElementById("form1").reset();
                 break;
             case 1:
-                bal_prc = area_ratio * 70 * es;
+                bal_prc = sheetprc*70;
                 break;
             case 0.7:
-                bal_prc = area_ratio * 60 * es;
+                bal_prc = sheetprc*60;
                 break;
             case 0.5:
-                bal_prc = area_ratio * 50 * es;
+                bal_prc = sheetprc*50;
                 break;
             case 0.3:
-                bal_prc = area_ratio * 40 * es;
+                bal_prc = sheetprc*40;
                 break;
         }
 
     }
-    bal_prc = Math.round(bal_prc); //나중에 프라이스에 한번에 넣어
+
 
     // console.log(area_ratio);
     // console.log(sheetprc);
     // console.log(bal_prc);
 
     //최종가격
-    price = bal_prc + sheetprc;
+    price = bal_prc + area;
 
     if (ivtN && ivtC) {
         alert('인버터 방식을 선택해 주세요');
@@ -150,7 +150,7 @@ function savePDF() {
     html2canvas($('#pdfArea')[0]).then(function (canvas) {
 
         var imgData = canvas.toDataURL('image/png');
-        var imgWidth = 330;
+        var imgWidth = 210;
         var imgHeight = canvas.height * imgWidth / canvas.width;
         var margin = 10; // 출력 페이지 여백설정
         var doc = new jsPDF('p', 'mm');
