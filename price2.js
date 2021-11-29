@@ -29,7 +29,10 @@ function calcs() {
         area = xs * ys * 2.5 * es;     //실사출력 총갯수
         sheetprc = area_ratio * es; //el시트가격 총갯수
         sheetprc = Math.round(sheetprc);
+
+        area=0.1*area;
         area = Math.round(area);
+        area = 10* area;
         // console.log(sheetprc);
     } else {
         alert('면적 입력 오류입니다.');
