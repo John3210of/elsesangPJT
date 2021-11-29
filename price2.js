@@ -154,7 +154,7 @@ function savePDF() {
         var imgHeight = canvas.height * imgWidth / canvas.width;
         var margin = 10; // 출력 페이지 여백설정
         var doc = new jsPDF('p', 'mm');
-        var position = 0;
+        var position = 10;
 
         doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
 
