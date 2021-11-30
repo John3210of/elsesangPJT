@@ -150,9 +150,14 @@ function output() {
 //pdf 2021-1126-1617 pdf기능 완료 update
 function savePDF() {
     //저장 영역 div id
-    html2canvas($('#pdfArea')[0]).then(function (canvas) {
+    html2canvas($('#pdfArea')[0],{
+        scale : 3
+    }
 
-        var imgData = canvas.toDataURL('image/png');
+
+    ).then(function (canvas) {
+
+        var imgData = canvas.toDataURL('image/jpg');
         var imgWidth = 210;
         var imgHeight = canvas.height * imgWidth / canvas.width;
         var margin = 10; // 출력 페이지 여백설정
