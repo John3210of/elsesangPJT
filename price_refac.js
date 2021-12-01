@@ -23,13 +23,11 @@ function calcs() {
         real_print_prc = xs * ys * es * 2.5;     //실사출력 총 가격
         var el_area = xs * ys * AR;       //el 시트 발광 면적
         var all_el_area = el_area * es; // el시트 총 발광면적
-        all_el_area = Math.round(all_el_area); //
 
+        all_el_area = Math.round(all_el_area); //
         temp= 0.1*real_print_prc;
         temp= Math.round(temp);
         real_print_prc= 10*temp;
-
-        console.log(real_print_prc)
 
     } else {
         alert('면적 입력 오류입니다.');
@@ -105,11 +103,6 @@ function calcs() {
     ivt_prc = ivt_prc.toLocaleString('ko-KR');
     tool_prc = tool_prc.toLocaleString('ko-KR');
     price = price.toLocaleString('ko-KR');
-    console.log(price);
-    console.log(real_print_prc);
-    console.log(temp);
-    console.log(ivt_prc);
-    console.log(tool_prc);
 
 }
 
